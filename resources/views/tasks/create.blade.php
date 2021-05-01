@@ -1,4 +1,5 @@
 <x-app-layout>
+    <title>Covid Project</title>
     <x-slot name="header">
         <div class="flex-shrink-0 flex items-center">
             <a href="{{ route('dashboard') }}">
