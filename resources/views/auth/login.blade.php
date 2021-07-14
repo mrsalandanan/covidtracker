@@ -1,6 +1,7 @@
 <x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">
+            <img src="images1/corona_icon.png">
             <x-jet-authentication-card-logo />
         </x-slot>
 
@@ -11,7 +12,6 @@
                 {{ session('status') }}
             </div>
         @endif
-<img src="images1/banner.png">
         <form method="POST" action="{{ route('login') }}">
             @csrf
 

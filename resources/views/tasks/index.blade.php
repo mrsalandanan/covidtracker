@@ -1,5 +1,6 @@
 <x-app-layout>
     <link href="css3/app.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             Patient List
@@ -91,7 +92,7 @@
         <div class="max-w-6xl mx-auto py-10 sm:px-6 lg:px-8">
             <div class="block mb-8">
                 <div class="buttons">
-                <a href="{{ route('tasks.create') }}" class="btn effect01" target="_blank"><span>Add Patient</span></a>
+                <a href="{{ route('tasks.create') }}" class="btn effect01" ><span>Add Patient</span></a>
             </div>
                 <main class="content">
                     <div class="container-fluid p-0">
@@ -107,28 +108,28 @@
                                             <div class="col-sm-6">
                                                 <div class="card">
                                                     <div class="card-body">
-                                                        <h5 class="card-title mb-4">Total Cases</h5>
-                                                        <h1 class="mt-1 mb-3">{{$count}}</h1>
+                                                        <i class="fa fa-users" style="font-size:36px; float: right;"></i><h5 class="card-title mb-4">Total <br>Cases</h5>
+                                                        <h1 class="mt-1 mb-3" style="text-align: center;">{{$count}}</h1>
                                                     </div>
                                                 </div>
                                                 <div class="card">
                                                     <div class="card-body">
-                                                        <h5 class="card-title mb-4">Total Death</h5>
-                                                        <h1 class="mt-1 mb-3">{{$deceased}}</h1>
+                                                        <i class="fa fa-user-times" style="font-size:36px; float: right;"></i><h5 class="card-title mb-4">Total <br>Death</h5>
+                                                        <h1 class="mt-1 mb-3" style="text-align: center;">{{$deceased}}</h1>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-sm-6">
                                                 <div class="card">
                                                     <div class="card-body">
-                                                        <h5 class="card-title mb-4">Total Active</h5>
-                                                        <h1 class="mt-1 mb-3">{{$count}}</h1>
+                                                        <i class="fa fa-user" style="font-size:36px; float: right;"></i><h5 class="card-title mb-4">Total <br>Active</h5>
+                                                        <h1 class="mt-1 mb-3" style="text-align: center;">{{$active}}</h1>
                                                     </div>
                                                 </div>
                                                 <div class="card">
                                                     <div class="card-body">
-                                                        <h5 class="card-title mb-4">Total Recovered</h5>
-                                                        <h1 class="mt-1 mb-3">{{$recovered}}</h1>
+                                                        <i class="fa fa-user-plus" style="font-size:36px; float: right;"></i><h5 class="card-title mb-4">Total <br>Recovered</h5>
+                                                        <h1 class="mt-1 mb-3" style="text-align: center;">{{$recovered}}</h1>
                                                     </div>
                                                 </div>
                                             </div>
@@ -139,7 +140,6 @@
                                 <div class="col-xl-6 col-xxl-7">
                                     <div class="card flex-fill w-100">
                                         <div class="card-header">
-
                                             <h5 class="card-title mb-0">Recent Movement</h5>
                                         </div>
                                         <div class="card-body py-3">
@@ -165,6 +165,7 @@
                                                 <th class="d-none d-xl-table-cell">Age</th>
                                                 <th class="d-none d-md-table-cell">Address</th>
                                                 <th class="d-none d-md-table-cell">Symptoms</th>
+                                            <!--<th class="d-none d-md-table-cell">Vaccine</th>-->
                                                 <th>Status</th>
                                                 <th class="d-none d-md-table-cell" style="text-align: center;">Modify</th>
                                             </tr>
@@ -177,7 +178,17 @@
                                                     <td class="d-none d-md-table-cell">{{ $task->age }}</td>
                                                     <td class="d-none d-md-table-cell">{{ $task->address }}</td>
                                                     <td class="d-none d-md-table-cell">{{ $task->symptoms }}</td>
-                                                    <td><span class="badge bg-success">{{ $task->status }}</span></td>
+                                                <td class="d-none d-md-table-cell">{{ $task->vaccine }}</td>
+                                                    <td>@if($task->status == "Active")
+                                                            <span class="badge bg-success">
+                                                        @elseif($task->status == "Recovered")
+                                                                    <span class="badge bg-primary">
+                                                        @elseif($task->status == "Deceased")
+                                                                            <span class="badge bg-danger">
+                                                        @endif
+                                                        {{ $task->status }}
+                                                    </td>
+
                                                     <td class="d-none d-md-table-cell" style="text-align: center;">
                                                         <a href="{{ route('tasks.show', $task->id) }}" class="text-blue-600 hover:text-blue-900 mb-2 mr-2">View</a>
                                                         <a href="{{ route('tasks.edit', $task->id) }}" class="text-indigo-600 hover:text-indigo-900 mb-2 mr-2">Edit</a>

@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
+use ArielMejiaDev\LarapexCharts\LarapexChart;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +20,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
@@ -30,7 +32,7 @@ Route::get('/email/verify', function () {
 Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
     $request->fulfill();
 
-    return redirect('/dashboard');
+    return redirect('/');
 })->middleware(['auth', 'signed'])->name('verification.verify');
 
 Route::post('/email/verification-notification', function (Request $request) {
@@ -48,3 +50,17 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::resource('users', \App\Http\Controllers\UsersController::class);
 });
+
+Route::get('chart', function () {
+    $chart = (new LarapexChart)->pieChart()
+        ->addData([
+            \App\Models\Task::where('age', '<=', 20)->count(),
+            \App\Models\Task::where('age', '>', 20)->count(),
+            \App\Models\Task::where('age', '>=', 59)->count()
+        ])
+        ->setColors(['#ffc63b', '#ff6384','#2ccdc9'])
+        ->setLabels(['Ages 0 - 18', 'Ages  19 - 59', 'Ages 60 and above']);
+
+    return view('chart', compact('chart'));
+});
+

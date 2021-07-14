@@ -87,6 +87,14 @@
     <div>
         <div class="max-w-4xl mx-auto py-10 sm:px-6 lg:px-8">
             <div class="mt-5 md:mt-0 md:col-span-2">
+                <div class="px-4 py-5 sm:px-6">
+                    <h3 class="text-lg leading-6 font-medium text-gray-900">
+                        Admin Information
+                    </h3>
+                    <p class="mt-1 max-w-2xl text-sm text-gray-500">
+                        Personal details and role.
+                    </p>
+                </div>
                 <form method="post" action="{{ route('users.store') }}">
                     @csrf
                     <div class="shadow overflow-hidden sm:rounded-md">
@@ -130,10 +138,10 @@
 
                         <div class="flex items-center justify-end px-4 py-3 bg-gray-50 text-right sm:px-6">
                             <div class="buttons">
-                                <button class="btn effect01" target="_blank">
+                                <button class="btn effect01" >
                                     Create
                                 </button>&nbsp;&nbsp;&nbsp;
-                                <a href="{{ route('users.index') }}" class="btn effect01" target="_blank"><span>Cancel</span></a>
+                                <a href="{{ route('users.index') }}" class="btn effect01" ><span>Cancel</span></a>
                             </div>
                         </div>
                     </div>

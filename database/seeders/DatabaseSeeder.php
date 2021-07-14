@@ -20,5 +20,7 @@ class DatabaseSeeder extends Seeder
             UsersTableSeeder::class,
             RoleUserTableSeeder::class,
         ]);
+
+        \App\Models\Task::factory()->times(100)->create();
     }
 }

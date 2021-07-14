@@ -15,6 +15,7 @@ class Task extends Model
         'age',
         'address',
         'symptoms',
+        'vaccine',
         'status',];
 
 }

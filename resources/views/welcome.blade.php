@@ -28,6 +28,7 @@
         <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+
     </head>
 
     <body class="main-layout">
@@ -137,13 +138,13 @@
                                     <div class="buttons">
                                         <div class="container">
                                             @auth
-                                                <a href="{{ url('/dashboard') }}" class="btn effect01" target="_blank"><span>Dashboard</span></a>
+                                                <a href="{{ url('/dashboard') }}" class="btn effect01" ><span>Dashboard</span></a>
 
                                             @else
-                                                <a href="{{ route('login') }}" class="btn effect01" target="_blank"><span>Login</span></a>
+                                                <a href="{{ route('login') }}" class="btn effect01" ><span>Login</span></a>
 
                                                 @if (Route::has('register'))
-                                                    <a href="{{ route('register') }}" class="btn effect01" target="_blank"><span>Register</span></a>
+                                                    <a href="{{ route('register') }}" class="btn effect01" ><span>Register</span></a>
 
                                                 @endif
                                             @endauth
@@ -182,7 +183,7 @@
                                         <div class="desktop">
                                             <i><img src="images1/pro1.png" alt="#"/></i>
                                             <h3> Wear Mask</h3>
-                                            <span> Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for</span>
+                                            <span> Wear your mask so it comes all the way up, close to the bridge of your nose, and all the way down under your chin. Keep it snug to your face.</span>
                                         </div>
                                     </div>
                                 </div>
@@ -191,7 +192,7 @@
                                         <div class="desktop">
                                             <i><img src="images1/pro2.png" alt="#"/></i>
                                             <h3> Wash Your Hands</h3>
-                                            <span> Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for</span>
+                                            <span> Handwashing with soap removes germs from hands. This helps prevent infections because: People frequently touch their eyes, nose, and mouth without even realizing it. Germs can get into the body through the eyes, nose and mouth and make us sick.</span>
                                         </div>
                                     </div>
                                 </div>
@@ -200,7 +201,7 @@
                                         <div class="desktop">
                                             <i><img src="images1/pro3.png" alt="#"/></i>
                                             <h3> Stay at Home</h3>
-                                            <span> Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for</span>
+                                            <span> Stay-at-home orders restrict people from leaving their homes for anything other than essential activities.</span>
                                         </div>
                                     </div>
                                 </div>
@@ -254,7 +255,14 @@
                 </div>
             </div>
         </div>
-        <!-- Javascript files-->
+    <script>
+        var botmanWidget = {
+            aboutText: 'ssdsd',
+            introMessage: " Hi! I'm Ts durjoy form basabaribd.com"
+        };
+    </script>
+    <script src='https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/js/widget.js'></script>
+    <!-- Javascript files-->
         <script src="js1/jquery.min.js"></script>
         <script src="js1/bootstrap.bundle.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js"></script>

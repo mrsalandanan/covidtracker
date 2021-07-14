@@ -133,7 +133,7 @@
                             <div class="px-4 py-5 bg-white sm:p-6">
                             <label for="symptoms" class="block font-medium text-sm text-gray-700">Symptoms</label>
                             <select class="form-control mb-3" name="symptoms" id="status"  >
-                                <option selected>Select Status</option>
+                                <option selected>Select Symptoms</option>
                                 <option {{old('symptoms','')=="Asymptomatic"? 'selected':''}}  value="Asymptomatic">Asymptomatic</option>
                                 <option {{old('symptoms','')=="Symptomatic"? 'selected':''}} value="Symptomatic">Symptomatic</option>
                             </select>
@@ -141,6 +141,20 @@
                             <p class="text-sm text-red-600">{{ $message }}</p>
                             @enderror
                             </div>
+                            <div class="px-4 py-5 bg-white sm:p-6">
+                                <label for="status" class="block font-medium text-sm text-gray-700">Vaccine</label>
+                                <select name="vaccine" id="vaccine" class="form-control mb-3">
+                                    <option selected>Select Vaccine</option>
+                                    <option {{old('vaccine','')=="Sinovac"? 'selected':''}}  value="Sinovac">Sinovac</option>
+                                    <option {{old('vaccine','')=="Pfizer"? 'selected':''}} value="Pfizer">Pfizer</option>
+                                    <option {{old('vaccine','')=="Moderna"? 'selected':''}} value="Moderna">Moderna</option>
+                                    <option {{old('vaccine','')=="AstraZeneca"? 'selected':''}} value="AstraZeneca">AstraZeneca</option>
+                                </select>
+                                @error('vaccine')
+                                <p class="text-sm text-red-600">{{ $message }}</p>
+                                @enderror
+                            </div>
+
                             <div class="px-4 py-5 bg-white sm:p-6">
                             <label for="status" class="block font-medium text-sm text-gray-700">Status</label>
                                 <select name="status" id="status" class="form-control mb-3">
@@ -156,10 +170,10 @@
                         </div>
                         <div class="flex items-center justify-end px-4 py-3 bg-gray-50 text-right sm:px-6">
                             <div class="buttons">
-                                <button class="btn effect01" target="_blank">
+                                <button class="btn effect01">
                                     Create
                                 </button>&nbsp;&nbsp;&nbsp;
-                                <a href="{{ route('tasks.index') }}" class="btn effect01" target="_blank"><span>Cancel</span></a>
+                                <a href="{{ route('tasks.index') }}" class="btn effect01" ><span>Cancel</span></a>
                             </div>
                         </div>
                     </div>

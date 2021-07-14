@@ -87,7 +87,7 @@
         <div class="max-w-6xl mx-auto py-10 sm:px-6 lg:px-8">
             <div class="block mb-8">
                 <div class="buttons">
-                    <a href="{{ route('tasks.index') }}" class="btn effect01" target="_blank"><span>Back</span></a>
+                    <a href="{{ route('tasks.index') }}" class="btn effect01" ><span>Back</span></a>
                 </div>
             </div>
             <div class="px-4 py-5 sm:px-6">
@@ -102,15 +102,8 @@
                 <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                     <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                         <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+
                             <table class="min-w-full divide-y divide-gray-200 w-full">
-                                <tr class="border-b">
-                                    <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                        ID
-                                    </th>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 bg-white divide-y divide-gray-200">
-                                        {{ $task->id }}
-                                    </td>
-                                </tr>
                                 <tr class="border-b">
                                     <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                         First Name
@@ -151,14 +144,27 @@
                                         {{ $task->symptoms }}
                                     </td>
                                 </tr>
+                             <tr class="border-b">
+                                    <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Vaccine
+                                    </th>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 bg-white divide-y divide-gray-200">
+                                        {{ $task->vaccine }}
+                                    </td>
+                                </tr>
                                 <tr class="border-b">
                                     <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                         Status
                                     </th>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 bg-white divide-y divide-gray-200">
-                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                        @if($task->status == "Active")
+                                            <span class="badge bg-success">
+                                                        @elseif($task->status == "Recovered")
+                                                    <span class="badge bg-primary">
+                                                        @elseif($task->status == "Deceased")
+                                                            <span class="badge bg-danger">
+                                        @endif
                                         {{ $task->status }}
-                                        </span>
                                     </td>
                                 </tr>
                             </table>

@@ -87,8 +87,16 @@
         <div class="max-w-6xl mx-auto py-10 sm:px-6 lg:px-8">
             <div class="block mb-8">
                 <div class="buttons">
-                    <a href="{{ route('users.index') }}" class="btn effect01" target="_blank"><span>Back</span></a>
+                    <a href="{{ route('users.index', $user->id) }}" class="btn effect01" ><span>Back</span></a>
                 </div>
+            </div>
+            <div class="px-4 py-5 sm:px-6">
+                <h3 class="text-lg leading-6 font-medium text-gray-900">
+                    Admin Information
+                </h3>
+                <p class="mt-1 max-w-2xl text-sm text-gray-500">
+                    Personal details and role.
+                </p>
             </div>
             <div class="flex flex-col">
                 <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">

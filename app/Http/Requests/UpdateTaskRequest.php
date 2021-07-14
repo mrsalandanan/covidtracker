@@ -25,6 +25,9 @@ class UpdateTaskRequest extends FormRequest
             'symptoms' => [
                 'required', 'string',
             ],
+            'vaccine' => [
+                'required', 'string',
+            ],
             'status' => [
                 'required', 'string',
             ],
